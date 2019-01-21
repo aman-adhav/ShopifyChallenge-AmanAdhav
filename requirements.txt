@@ -1,0 +1,4 @@
+flask-cors
+math
+pymongo
+requests
