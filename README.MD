@@ -111,23 +111,23 @@ if __name__ == '__main__':
  
  * /add-item
 Add Item to the collection registered_items in DB ShopifyStore.
-REST Call : POST Message
-Post Request Attributes
+    REST Call : POST Message
+    Post Request Attributes
 
-===== Attributes =====
-item : Name of the Item 
-price : Price of the Given Item
-Quantity : Quantity supplied for the given state of the item
-id : Only admins with User Id 1287498729198 can use this command
-
-Preconditions:
-	Assume User ID 1287498729198 exists
-
-Throws Exception :  
-If all Attributes are not provided -> return value is Invalid Entry
-If userId is not 1287498729198 -> return value is Error: Unauthorized User Cannot add to database
-If item is just an empty string "" -> return value is Invalid item name : Name cannot be an empty string
-If item already exists in the collection -> return value is Item is already in this system! Use the update function to change items values
+        ===== Attributes =====
+        item : Name of the Item 
+        price : Price of the Given Item
+        Quantity : Quantity supplied for the given state of the item
+        id : Only admins with User Id 1287498729198 can use this command
+        
+        Preconditions:
+            Assume User ID 1287498729198 exists
+        
+        Throws Exception :  
+        If all Attributes are not provided -> return value is Invalid Entry
+        If userId is not 1287498729198 -> return value is Error: Unauthorized User Cannot add to database
+        If item is just an empty string "" -> return value is Invalid item name : Name cannot be an empty string
+        If item already exists in the collection -> return value is Item is already in this system! Use the update function to change items values
  
  POST REQUEST:
  ```
@@ -141,24 +141,24 @@ If item already exists in the collection -> return value is Item is already in t
  ```
  
  * /update_item
-Update Item to the collection registered_items in DB ShopifyStore.
-REST Call : POST Message
-Post Request Attributes
+ Update Item to the collection registered_items in DB ShopifyStore.
+    REST Call : POST Message
+    Post Request Attributes
 
-===== Attributes =====
-item : Name of the Item 
-price : Changed Price of the Given Item
-Quantity : Changed Quanitity supplied for the given state of the item
-id : Only admins with User Id 1287498729198 can use this command
-
-Preconditions:
-	Assume User ID 1287498729198 exists
-
-Throws Exception :  
-If all Attributes are not provided -> return value is Invalid Entry
-If userId is not 1287498729198 -> return value is Error: Unauthorized User Cannot add to database
-If item is just an empty string "" -> return value is Invalid item name : Name cannot be an empty string
-If item does not exist in collection -> return value is Cannot Update Item that does not exist! Please check the item name! Or use the /add-item command
+        ===== Attributes =====
+        item : Name of the Item 
+        price : Changed Price of the Given Item
+        Quantity : Changed Quanitity supplied for the given state of the item
+        id : Only admins with User Id 1287498729198 can use this command
+        
+        Preconditions:
+            Assume User ID 1287498729198 exists
+        
+        Throws Exception :  
+        If all Attributes are not provided -> return value is Invalid Entry
+        If userId is not 1287498729198 -> return value is Error: Unauthorized User Cannot add to database
+        If item is just an empty string "" -> return value is Invalid item name : Name cannot be an empty string
+        If item does not exist in collection -> return value is Cannot Update Item that does not exist! Please check the item name! Or use the /add-item command
  
  POST REQUEST : 
  ```
@@ -173,14 +173,14 @@ If item does not exist in collection -> return value is Cannot Update Item that 
 
 * /all-items 
 List of all current items in ShopifyStore (Collection registered_items)
-REST Call : GET Message
-Post Request Attributes
+    REST Call : GET Message
+    Post Request Attributes
 
-===== Attributes =====
-None
-
-Return Type :
-List of all the values in Collection
+        ===== Attributes =====
+        None
+        
+        Return Type :
+        List of all the values in Collection
 
  GET REQUEST : 
  ```
@@ -195,31 +195,31 @@ List of all the values in Collection
 
 * /fetch-items
 View Items in ShopifyStore in various orders including : highest-lowest price, lowest-highest price, highest-lowest quantity, lowest-highest quantity
-REST Call : POST Message
-Post Request Attributes
+    REST Call : POST Message
+    Post Request Attributes
 
-===== Attributes =====
-filter_type : Order of sorting for values in Collection (highest-lowest price, lowest-highest price, highest-lowest quantity, lowest-highest quantity)
-name_search : Fiter names of items with key words such as 'Apples in Granny Smith Apples, or Apple play book' both these items will be returned becuase of filter 'Apple'
-
-
-Throws Exception :  
-If all Attributes are not provided -> return value is Invalid Entry
-
-Return Type : 
-List of all items with a particular filter in a particular order 
-Example : 
-POST Message 
-{
-"filter_type": "lowest-highest price", "provided_name": "Granny" 
-}
-Return : 
-[{'_id': ObjectId('5c440a45dda55f106ccd1328'), 'item_name': 'Granny Smith Apples', 'price': 7, 'quantity': 20},
-{'_id': ObjectId('5c440ef4dda55f1254cd9820'), 'item_name': 'Granny Smasdfth Apples', 'price': 7, 'quantity': 50}, 
-{'_id': ObjectId('5c440efbdda55f1254cd9821'), 'item_name': 'Granny Smah Apples', 'price': 7, 'quantity': 50}, 
-{'_id': ObjectId('5c440a51dda55f106ccd1329'), 'item_name': 'Granny Smith Aples', 'price': 10, 'quantity': 100}]
-
-Values sorted from lowest to highest with key name filter Granny in them
+        ===== Attributes =====
+        filter_type : Order of sorting for values in Collection (highest-lowest price, lowest-highest price, highest-lowest quantity, lowest-highest quantity)
+        name_search : Fiter names of items with key words such as 'Apples in Granny Smith Apples, or Apple play book' both these items will be returned becuase of filter 'Apple'
+        
+        
+        Throws Exception :  
+        If all Attributes are not provided -> return value is Invalid Entry
+        
+        Return Type : 
+        List of all items with a particular filter in a particular order 
+        Example : 
+        POST Message 
+       {
+	"filter_type": "lowest-highest price", "provided_name": "Granny" 
+        }
+        Return : 
+        [{'_id': ObjectId('5c440a45dda55f106ccd1328'), 'item_name': 'Granny Smith Apples', 'price': 7, 'quantity': 20},
+        {'_id': ObjectId('5c440ef4dda55f1254cd9820'), 'item_name': 'Granny Smasdfth Apples', 'price': 7, 'quantity': 50}, 
+        {'_id': ObjectId('5c440efbdda55f1254cd9821'), 'item_name': 'Granny Smah Apples', 'price': 7, 'quantity': 50}, 
+        {'_id': ObjectId('5c440a51dda55f106ccd1329'), 'item_name': 'Granny Smith Aples', 'price': 10, 'quantity': 100}]
+        
+        Values sorted from lowest to highest with key name filter Granny in them
  
  POST REQUEST:
  ```
@@ -234,18 +234,18 @@ Values sorted from lowest to highest with key name filter Granny in them
 
 * /purchase-item
 Make a Purchase of given quantity for a particular item
-REST Call : POST Message
-Post Request Attributes
+    REST Call : POST Message
+    Post Request Attributes
 
-===== Attributes =====
-purchased_item : Name of item user wants to purchase
-purchased_quantity : Quantity user wishes to purchase
+        ===== Attributes =====
+        purchased_item : Name of item user wants to purchase
+        purchased_quantity : Quantity user wishes to purchase
 
 
-Throws Exception :  
-If all Attributes are not provided -> return value is Invalid Entry
-If quantity requested exceeds quantity in ShopifyStore -> return value Error : Purchase exceeds quantity limit! Cannot execute order
-If item does not exist in collection -> return value is Cannot Update Item that does not exist! Please check the item name! Or use the /add-item command
+        Throws Exception :  
+        If all Attributes are not provided -> return value is Invalid Entry
+        If quantity requested exceeds quantity in ShopifyStore -> return value Error : Purchase exceeds quantity limit! Cannot execute order
+        If item does not exist in collection -> return value is Cannot Update Item that does not exist! Please check the item name! Or use the /add-item command
         
  POST REQUEST : 
  ```
@@ -260,20 +260,20 @@ If item does not exist in collection -> return value is Cannot Update Item that 
 
 * /add-to-cart
 Add items to a cart (collection checked_item) 
-REST Call : POST Message
-Post Request Attributes
+    REST Call : POST Message
+    Post Request Attributes
 
-===== Attributes =====
-checked_item : Name of item user wants to purchase/add to cart
-checked_quantity : Quantity user wishes to purchase/add to cart
-checked_price : Price of item 
+        ===== Attributes =====
+        checked_item : Name of item user wants to purchase/add to cart
+        checked_quantity : Quantity user wishes to purchase/add to cart
+        checked_price : Price of item 
 
 
-Throws Exception :  
-If all Attributes are not provided -> return value is Invalid Entry
-If quantity requested exceeds quantity in ShopifyStore -> return value Error : Purchase exceeds quantity limit! Cannot execute order
-If item does not exist in collection -> return value is Cannot checkout item that does not exist! Please check the item name! Or use the /add-item command
-If Quantity being added exceeds the quantity in collection registered_items -> return value is Error : Checkout exceeds quantity limit! Cannot add to order
+        Throws Exception :  
+        If all Attributes are not provided -> return value is Invalid Entry
+        If quantity requested exceeds quantity in ShopifyStore -> return value Error : Purchase exceeds quantity limit! Cannot execute order
+        If item does not exist in collection -> return value is Cannot checkout item that does not exist! Please check the item name! Or use the /add-item command
+        If Quantity being added exceeds the quantity in collection registered_items -> return value is Error : Checkout exceeds quantity limit! Cannot add to order
         
  POST REQUEST : 
  ```
@@ -288,14 +288,14 @@ If Quantity being added exceeds the quantity in collection registered_items -> r
 
 * /checkout-total
 List of all current items in Checkout window 
-REST Call : GET Message
-Post Request Attributes
+    REST Call : GET Message
+    Post Request Attributes
 
-===== Attributes =====
-None
-
-Return Type :
-List of all the values in Collection
+        ===== Attributes =====
+        None
+        
+        Return Type :
+        List of all the values in Collection
  
  GET REQUEST:
  ```
