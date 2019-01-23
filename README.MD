@@ -20,11 +20,11 @@ Products should be able to be "purchased" which should reduce the inventory by 1
 That means purchasing a product requires first creating a cart, adding products to the cart, and then "completing" the cart.
 The cart should contain a list of all included products, a total dollar amount (the total value of all products), and product inventory shouldn't reduce until after a cart has been completed.
 
-- Bonus points for making your API (at least partly) secure, writing documentation that doesn’t suck, including unit tests,
+- Bonus points for making your API (at least partly) secure, writing documentation that doesnâ€™t suck, including unit tests,
  
 
 ### Flask API:
-This app runs as an API built with Flask. Endpoints and locally hosted sever with queries is performed by the [Flask](http://flask.pocoo.org/) API.
+This app runs as an API built with Flask. Endpoints and locally hosted server with queries is performed by the [Flask](http://flask.pocoo.org/) API.
 
 ### Currently Supported Functions:
 
